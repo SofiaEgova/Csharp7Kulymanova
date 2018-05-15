@@ -14,6 +14,11 @@ namespace HW1
             try
             {
                 int s = Convert.ToInt32(Console.ReadLine());
+                if (s < 1)
+                {
+                    Console.WriteLine("Введенные вами данные не верны");
+                    Environment.Exit(0);
+                }
                 Game game = new Game(s);
                 while (!game.check())
                 {

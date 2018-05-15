@@ -38,43 +38,40 @@ namespace HW1
 
         public bool check()
         {
-            bool g = false, v = false, dg = false,dp=false;
-            for(int i = 0; i < size-1; i++)
+            int g = 0, v = 0, dg = 0, dp = 0;
+            for (int i = 0; i < size - 1; i++)
             {
-                for(int j = 0; j < size-1; j++)
+                for (int j = 0; j < size - 1; j++)
                 {
                     if (field[i][j] != -1)
                     {
-                        if (field[i][j] != field[i + 1][j])
+
+                        if (field[i][j] == field[i + 1][j])
                         {
-                            g = false;
+                            g++;
                         }
-                        else g = true;
-                        if (field[i][j] != field[i][j + 1])
+                        if (field[i][j] == field[i][j + 1])
                         {
-                            v = false;
+                            v++;
                         }
-                        else v = true;
                     }
-                    if (field[i][i] != -1)
+                }
+                if (field[i][i] != -1)
+                {
+                    if (field[i][i] == field[i + 1][i + 1])
                     {
-                        if (field[i][i] != field[i + 1][i + 1])
-                        {
-                            dg = false;
-                        }
-                        else dg = true;
+                        dg++;
                     }
-                    if (field[size - 1 - i][i] != -1)
+                }
+                if (field[size - 1 - i][i] != -1)
+                {
+                    if (field[size - 1 - i][i] == field[size - 2 - i][i + 1])
                     {
-                        if (field[size - 1 - i][i] != field[size-2-i][i+1])
-                        {
-                            dp = false;
-                        }
-                        else dp = true;
+                        dp++;
                     }
                 }
             }
-            if (g == true || v == true || dg == true || dp == true) return true;
+            if (g == size-1 || v == size-1 || dg == size-1 || dp == size-1) return true;
             return false;
         }
 
