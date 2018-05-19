@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace HW1
 {
-    public class Game
+    public class Game: IGame
     {
-        int size;
-        int[][] field;
+        public int size { get; set; }
+        private int[][] field;
+        public object[] players { get; set; }
 
         public Game(int s)
         {
@@ -26,6 +27,7 @@ namespace HW1
                     field[i][j] = -1;
                 }
             }
+            players = new string[] { "Нолики", "Единички" };
         }
 
         public void add(int x, int y, int num)
@@ -34,6 +36,12 @@ namespace HW1
             {
                 field[x][y] = num;
             }
+        }
+
+        public int changePlayer(int pl)
+        {
+            if (pl==1) return 0;
+            return 1;
         }
 
         public bool check()
@@ -75,7 +83,7 @@ namespace HW1
             return false;
         }
 
-        public string gameFild()
+        public string getGameFild()
         {
             string str = "";
             for(int i = 0; i < size; i++)
@@ -84,7 +92,7 @@ namespace HW1
                 {
                     str += field[i][j] + " ";
                 }
-                str += "\n";
+                str += "\r\n";
             }
             return str;
         }

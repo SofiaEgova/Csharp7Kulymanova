@@ -33,9 +33,9 @@ namespace HW1
                     }
 
                     game.add(x, y, num);
-                    Console.WriteLine(game.gameFild());
+                    Console.WriteLine(game.getGameFild());
                 }
-                Console.WriteLine("Game Over!!! \n" + game.gameFild());
+                Console.WriteLine("Game Over!!! \n" + game.getGameFild());
             }
             catch (FormatException ex)
             {
